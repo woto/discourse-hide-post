@@ -7,7 +7,7 @@ export default {
     var PostMenuView = container.lookupFactory("view:post-menu");
 
     PostMenuView.reopen({
-      shouldRerenderHideButton: Discourse.View.renderIfChanged("post.temporarily_hidden"),
+      rerenderTriggers: ["post.temporarily_hidden"],
 
       buttonForHide: function (post, buffer) {
         var direction = !!post.getWithDefault("temporarily_hidden", false) ? "down" : "up";
